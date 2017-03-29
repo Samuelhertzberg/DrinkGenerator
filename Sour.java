@@ -1,11 +1,15 @@
 import java.util.ArrayList;
 class Sour extends Drink{
-  public Sour(PartitionGenerator p, Inventory i){
+  public Sour(PartitionGenerator p, Inventory i, int amount){
     super(p,i);
     noIngredientsMax = 2;
     noIngredientsMin = 1;
-    amountMax = 6;
-    amountMin = 4;
+	amountMax = amount;
+    amountMin = amount;
+	if (amount == 0) {
+		amountMax = 6;
+	    amountMin = 4;
+	}
     getPartition();
     getIngredientList();
   }

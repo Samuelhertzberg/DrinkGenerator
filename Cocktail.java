@@ -1,11 +1,15 @@
 import java.util.ArrayList;
 class Cocktail extends Drink{
-  public Cocktail(PartitionGenerator p, Inventory i){
+  public Cocktail(PartitionGenerator p, Inventory i, int amount){
     super(p,i);
     noIngredientsMax = 5;
     noIngredientsMin = 2;
-    amountMax = 8;
-    amountMin = 5;
+	amountMax = amount;
+    amountMin = amount;
+	if (amount == 0) {
+		amountMax = 8;
+	    amountMin = 5;
+	}
     getPartition();
     getIngredientList();
   }

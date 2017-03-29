@@ -1,11 +1,15 @@
 import java.util.ArrayList;
 public class Grogg extends Drink{
-  public Grogg(PartitionGenerator p, Inventory i){
+  public Grogg(PartitionGenerator p, Inventory i, int amount){
     super(p,i);
     noIngredientsMax = 1;
     noIngredientsMin = 1;
-    amountMax = 6;
-    amountMin = 4;
+	amountMax = amount;
+    amountMin = amount;
+	if (amount == 0) {
+		amountMax = 6;
+	    amountMin = 4;
+	}
     getPartition();
     getIngredientList();
   }
